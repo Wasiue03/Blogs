@@ -8,19 +8,20 @@ const authRoutes = require("./routes/auth");
 const blogRoutes = require("./routes/blogPost");
 const userProfile = require("./routes/userProfile");
 
-// database connection
+// Database connection
 connection();
 
-// middlewares
+// Middlewares
 app.use(express.json());
 app.use(cors());
 
-
-// routes
+// Routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/blog", blogRoutes);
 app.use("/api/profile", userProfile);
 
 const port = process.env.PORT || 8000;
-app.listen(port, console.log(`Listening on port ${port}...`));
+app.listen(port, () => {
+  console.log(`Listening on port ${port}...`);
+});
